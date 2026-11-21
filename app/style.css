@@ -1,0 +1,53 @@
+@font-face {
+  font-family: 'Anton';
+  src: url('./fonts/Anton-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Pacifico';
+  src: url('./fonts/Pacifico-Regular.ttf') format('truetype');
+  font-display: swap;
+}
+
+html, body { margin: 0; min-height: 100%; background: #14101d; color: #f2eef7; font: 15px/1.45 system-ui, -apple-system, sans-serif; }
+.app { display: flex; gap: 28px; align-items: flex-start; justify-content: center; padding: 24px; box-sizing: border-box; }
+
+.controls { width: 340px; flex: none; display: flex; flex-direction: column; gap: 16px; }
+.controls h1 { margin: 0; font-family: Anton, 'Arial Black', sans-serif; font-weight: 400; font-size: 34px; line-height: 1.05; letter-spacing: 0.5px; text-transform: uppercase; }
+.controls h1 span { display: block; color: #00e5c0; }
+.tagline { margin: 0; color: #b9b0c9; }
+
+fieldset { border: 1px solid #3a2f4d; border-radius: 10px; padding: 12px 14px; margin: 0; display: flex; flex-direction: column; gap: 10px; }
+legend { font-weight: 700; color: #ffd166; padding: 0 6px; }
+label { display: flex; flex-direction: column; gap: 5px; font-weight: 600; font-size: 13px; }
+input[type=text], select { font: inherit; padding: 8px; border: 1px solid #4a3d61; border-radius: 6px; background: #1e1729; color: #f2eef7; }
+input[type=file] { font: inherit; color: #cfc6dd; }
+input[type=range] { accent-color: #ff5e8a; }
+.slot-name { font-size: 12px; color: #8f86a3; margin-top: -6px; }
+.hint { margin: 0; font-size: 13px; color: #b9b0c9; }
+.row { display: flex; gap: 8px; }
+.row button { flex: 1; }
+.picks { display: flex; flex-wrap: wrap; gap: 8px; }
+
+button { font: inherit; font-weight: 700; padding: 9px 12px; border: 1px solid #4a3d61; border-radius: 8px; background: #241b33; color: #f2eef7; cursor: pointer; }
+button:hover { border-color: #00e5c0; }
+button:disabled { opacity: 0.45; cursor: default; }
+button:disabled:hover { border-color: #4a3d61; }
+button.pick.active { background: #ff5e8a; border-color: #ff5e8a; color: #fff; }
+button.export { background: #00e5c0; border-color: #00e5c0; color: #10201c; font-size: 16px; padding: 12px; }
+button.export:hover { filter: brightness(1.1); }
+#surprise { background: #3a1c4d; border-color: #ff5e8a; }
+#status { margin: 0; font-size: 13px; color: #8f86a3; min-height: 1.2em; }
+
+.preview { flex: 1 1 auto; max-width: 860px; display: flex; flex-direction: column; align-items: center; gap: 10px; position: sticky; top: 24px; }
+.preview canvas { max-width: 100%; max-height: calc(100vh - 90px); width: auto; height: auto; box-shadow: 0 12px 40px rgba(0, 0, 0, 0.55); border-radius: 4px; cursor: grab; touch-action: none; }
+.preview canvas:active { cursor: grabbing; }
+.preview-size { margin: 0; color: #8f86a3; font-size: 13px; }
+
+/* Screenshot scenes: the cover alone fills the viewport. */
+body.shot-cover { overflow: hidden; }
+body.shot-cover .controls { display: none; }
+body.shot-cover .app { padding: 0; gap: 0; display: block; }
+body.shot-cover .preview { max-width: none; position: static; }
+body.shot-cover .preview-size { display: none; }
+body.shot-cover canvas { width: 100vw; height: 100vh; max-width: none; max-height: none; box-shadow: none; border-radius: 0; }
